@@ -39,7 +39,7 @@ include_once "conexao.php";
                 echo "Erro: Usuário não cadastrado com sucesso!<br>";
             }
         } catch (PDOException $erro) {
-            echo "Erro: Usuário não cadastrado com sucesso!<br>";
+            echo "Erro: Usuário não cadastrado com sucesso!<br>".$erro->getMessage();
             //echo "Erro: Usuário não cadastrado com sucesso. Erro gerado: " . $erro->getMessage() . " <br>";
         }
     }
@@ -63,7 +63,8 @@ include_once "conexao.php";
         }
         ?>
         <label>E-mail: </label>
-        <input type="email" name="email" placeholder="Melhor e-mail do usuário" value="<?php echo $email; ?>" required /><br><br>
+        <input type="email" name="email" placeholder="Melhor e-mail do usuário" value="<?php echo $email; ?>"
+            required /><br><br>
 
 
         <?php
@@ -73,7 +74,8 @@ include_once "conexao.php";
         }
         ?>
         <label>Senha: </label>
-        <input type="password" name="senha" placeholder="Senha do usuário" value="<?php echo $senha; ?>" required /><br><br>
+        <input type="password" name="senha" placeholder="Senha do usuário" value="<?php echo $senha; ?>"
+            required /><br><br>
 
         <?php
         $query_sists_usuarios = "SELECT id, nome FROM sists_usuarios ORDER BY nome ASC";
