@@ -32,7 +32,7 @@ include_once "conexao.php";
 
             $cad_usuario->execute();
 
-            if ($cad_usuario->rowCount()) {
+            if ($cad_usuario->rowCount() > 0) {
                 echo "Usuário cadastrado com sucesso!<br>";
                 unset($dados);
             } else {
@@ -40,7 +40,7 @@ include_once "conexao.php";
             }
         } catch (PDOException $erro) {
             echo "Erro: Usuário não cadastrado com sucesso!<br>".$erro->getMessage();
-            //echo "Erro: Usuário não cadastrado com sucesso. Erro gerado: " . $erro->getMessage() . " <br>";
+            echo "Erro: Usuário não cadastrado com sucesso. Erro gerado:   $erro->getMessage()   <br>";
         }
     }
 
